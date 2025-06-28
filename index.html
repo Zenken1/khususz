@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Surat Khusus Buat Alya</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #1c1c3c, #2b2b4f, #000);
+      color: #eee;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      background: rgba(30, 30, 50, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      color: #eee;
+    }
+    h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .judul {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    p {
+      font-size: 20px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+      white-space: pre-line;
+    }
+    button {
+      background: linear-gradient(135deg, #5f2c82, #49a09d);
+      color: #fff;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 30px;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      min-width: 220px;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #302b63, #0f0c29);
+      transform: scale(1.05);
+    }
+    .popup-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+    }
+    .popup {
+      background: #2a2a4d;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      max-width: 350px;
+      text-align: center;
+      color: #eee;
+    }
+    .popup h2 {
+      margin-bottom: 20px;
+    }
+    .popup button {
+      width: 140px;
+      margin: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Musik Romantis -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_f91e41cbe5.mp3?filename=romantic-background-116199.mp3" type="audio/mpeg">
+</audio>
+
+<section id="step1">
+  <div class="judul">INI ADALAH PESAN KHUSUS DARI ZEN UNTUK MU</div>
+  <button id="btnLanjut1">Mau lanjut gak, Alya?</button>
+</section>
+
+<section id="step2" style="display:none;">
+  <h1>Bagian 2</h1>
+  <p>
+    Aku masih inget jelas pertama kali kita kenal.  
+    Awalnya cuma liat sekilas, tapi lama-lama jadi penasaran.  
+    Dari situ, aku mulai cari tau tentang kamu.  
+    Dan makin lama aku makin yakin, kamu itu orang yang spesial.
+  </p>
+  <button id="btnLanjut2">Lanjut</button>
+</section>
+
+<section id="step3" style="display:none;">
+  <h1>Bagian 3</h1>
+  <p>
+    Sepertinya aku jatuh cinta padamu, entah dari mana asalnya.  
+    Rasanya tiba-tiba aja aku mikirin kamu terus,  
+    dan makin hari makin susah buat nggak mikirin kamu.
+  </p>
+  <button id="btnLanjut3">Lanjut</button>
+</section>
+
+<section id="step4" style="display:none;">
+  <h1>Bagian 4</h1>
+  <p>
+    Kenapa bisa jatuh cinta?  
+    Karena gua pernah lihat lu pas di warung waktu maghriban.  
+    Awalnya gua nggak nyadar kalo itu elu,  
+    eh pas ketemu gua ngelihat lu,  
+    dan lu juga ngelihat gua.  
+    Di situlah gua salting parah.  
+    Alasan gua pura-pura nggak lihat, padahal aslinya salting berat, Alya.
+  </p>
+  <button id="btnLanjut4">Lanjut</button>
+</section>
+
+<section id="step5" style="display:none;">
+  <h1>Bagian 5</h1>
+  <p>
+    Aku gak bakal maksa kok.  
+    Aku cuma pengen tau, gimana perasaan kamu sebenernya.  
+    Karena dari aku, ya gitu… udah jelas banget.
+  </p>
+  <button id="btnLanjut5">Gimana, mau gak jadi pacar aku?</button>
+</section>
+
+<!-- Popup -->
+<div class="popup-bg" id="popupBg">
+  <div class="popup">
+    <h2>Alya, pilih ya</h2>
+    <button onclick="terima()">Terima</button>
+    <button onclick="tolak()">Tolak</button>
+    <br/>
+    <button onclick="closePopup()" style="background:#999;color:#fff;margin-top:15px;">Batal</button>
+  </div>
+</div>
+
+<script>
+  const nomorWA = '6285182268119';
+  const step1 = document.getElementById('step1');
+  const step2 = document.getElementById('step2');
+  const step3 = document.getElementById('step3');
+  const step4 = document.getElementById('step4');
+  const step5 = document.getElementById('step5');
+  const popupBg = document.getElementById('popupBg');
+
+  document.getElementById('btnLanjut1').onclick = () => {
+    step1.style.display = 'none';
+    step2.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.getElementById('btnLanjut2').onclick = () => {
+    step2.style.display = 'none';
+    step3.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.getElementById('btnLanjut3').onclick = () => {
+    step3.style.display = 'none';
+    step4.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.getElementById('btnLanjut4').onclick = () => {
+    step4.style.display = 'none';
+    step5.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.getElementById('btnLanjut5').onclick = () => {
+    popupBg.style.display = 'flex';
+  }
+
+  function closePopup() {
+    popupBg.style.display = 'none';
+  }
+  function terima() {
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent('GASS ZEN GUA 🙏💕')}`;
+    window.location.href = url;
+  }
+  function tolak() {
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent('Alasan Menolak: ')}`;
+    window.location.href = url;
+  }
+</script>
+
+</body>
+</html>
